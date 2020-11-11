@@ -4,6 +4,8 @@ import {Card, CardBody, CardImg, CardText, CardTitle} from "reactstrap";
 class DishDetail extends Component {
     constructor(props) {
         super(props);
+        this.state = {
+        };
     }
 
     renderDish(dish) {
@@ -25,7 +27,7 @@ class DishDetail extends Component {
 
     renderComments(dish) {
         if (dish != null) {
-            const commentElement = this.props.selectedDish.comments.map((comment) => {
+            const commentElement = this.props.dish.comments.map((comment) => {
                 return(
                     <li key={comment.id}>
                         <li className="mt-2">{comment.comment}</li>
@@ -53,12 +55,14 @@ class DishDetail extends Component {
 
     render(){
         return(
-            <div className="row">
-                <div className="col-12 col-md-5 m-1">
-                    {this.renderDish(this.props.selectedDish)}
-                </div>
-                <div className="col-12 col-md-5 m-1">
-                    {this.renderComments(this.props.selectedDish)}
+            <div className="container">
+                <div className="row">
+                    <div className="col-12 col-md-5 m-1">
+                        {this.renderDish(this.props.dish)}
+                    </div>
+                    <div className="col-12 col-md-5 m-1">
+                        {this.renderComments(this.props.dish)}
+                    </div>
                 </div>
             </div>
         )
