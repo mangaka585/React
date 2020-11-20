@@ -51,15 +51,9 @@ class CommentForm extends Component {
                                 </Col>
                             </Row>
                             <Row className="form-group">
-<<<<<<< HEAD
                                 <Col xs={12}><Label htmlFor="author"><strong>Your Name</strong></Label></Col>
                                 <Col xs={12}>
                                     <Control.text model=".author" id="author" name="author"
-=======
-                                <Col xs={12}><Label htmlFor="yourname"><strong>Your Name</strong></Label></Col>
-                                <Col xs={12}>
-                                    <Control.text model=".yourname" id="yourname" name="yourname"
->>>>>>> dc7fd91499a85364065fae8838cba2508e45954c
                                         placeholder="Your Name"
                                         className="form-control"
                                         validators={{
@@ -68,11 +62,7 @@ class CommentForm extends Component {
                                             />
                                     <Errors
                                         className="text-danger"
-<<<<<<< HEAD
                                         model=".author"
-=======
-                                        model=".yourname"
->>>>>>> dc7fd91499a85364065fae8838cba2508e45954c
                                         show="touched"
                                         messages={{
                                             required: 'Required',
@@ -87,19 +77,10 @@ class CommentForm extends Component {
                                 <Col xs={12}>
                                     <Control.textarea model=".comment" id="comment" name="comment" rows='6'
                                         className="form-control"
-<<<<<<< HEAD
                                     />
                                 </Col>
                             </Row>
                             <Button color="primary">Submit</Button>{' '}
-=======
-                                        validators={{
-                                            required, minLength: minLength(3), maxLength: maxLength(15)
-                                        }}
-                                    />
-                                </Col>
-                            </Row>
->>>>>>> dc7fd91499a85364065fae8838cba2508e45954c
                         </LocalForm>
                     </ModalBody>
                 </Modal>
