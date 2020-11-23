@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Card, CardBody, CardImg, CardText, CardTitle, Breadcrumb, BreadcrumbItem, Button, Row, Label, Col, Modal, ModalBody, ModalHeader } from "reactstrap";
 import { Link } from 'react-router-dom';
-import { Control, LocalForm, Errors } from 'react-redux-form';
+import { Control, Form, Errors, actions } from 'react-redux-form';
 import { Loading } from './LoadingComponent';
 
 const required = (val) => val && val.length;
@@ -27,7 +27,8 @@ class CommentForm extends Component {
 
     handleSubmit(values) {
         console.log('Current State is: ' + JSON.stringify(values));
-        this.props.addComment(this.props.dishId, values.rating, values.author, values.comment);
+        alert('Current State is: ' + JSON.stringify(values));
+        this.props.resetFeedbackForm();
     }
 
     render(){
@@ -37,7 +38,7 @@ class CommentForm extends Component {
                 <Modal isOpen={this.state.isModalOpen} toggle={this.toggleModal}>
                     <ModalHeader toggle={this.toggleModal}>Submit Comment</ModalHeader>
                     <ModalBody>
-                        <LocalForm onSubmit={(values) => this.handleSubmit(values)}>
+                        <Form model="feedback" onSubmit={(values) => this.handleSubmit(values)}>
                         <Row className="form-group">
                                 <Col xs={12}><Label htmlFor="rating"><strong>Rating</strong></Label></Col>
                                 <Col xs={12}>
@@ -82,7 +83,7 @@ class CommentForm extends Component {
                                 </Col>
                             </Row>
                             <Button color="primary">Submit</Button>{' '}
-                        </LocalForm>
+                        </Form>
                     </ModalBody>
                 </Modal>
             </div>
