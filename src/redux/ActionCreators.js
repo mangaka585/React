@@ -186,7 +186,7 @@ export const leadersFailed = (errmess) => ({
     payload: errmess
 });
 
-export const addLeaders = (promos) => ({
+export const addLeaders = (leaders) => ({
     type: ActionTypes.ADD_LEADERS,
-    payload: promos
+    payload: leaders
 });
