@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Card, CardBody, CardImg, CardText, CardTitle, Breadcrumb, BreadcrumbItem, Button, Row, Label, Col, Modal, ModalBody, ModalHeader } from "reactstrap";
 import { Link } from 'react-router-dom';
-import { Control, Form, Errors, actions } from 'react-redux-form';
+import { Control, Form, Errors } from 'react-redux-form';
 import { Loading } from './LoadingComponent';
 import { baseUrl } from '../shared/baseUrl';
 import { FadeTransform, Fade, Stagger } from 'react-animation-components';
@@ -120,16 +120,12 @@ function RenderComments({comments, postComment, dishId}) {
     const commentElement = comments.map((comment) => {
         return(
             <Stagger in>
-            {comments.map((comment) => {
-                return (
                     <Fade in>
                     <li key={comment.id}>
                     <p>{comment.comment}</p>
                     <p>-- {comment.author} , {new Intl.DateTimeFormat('en-US', { year: 'numeric', month: 'short', day: '2-digit'}).format(new Date(Date.parse(comment.date)))}</p>
                     </li>
                     </Fade>
-                );
-            })}
             </Stagger>
         );
     })

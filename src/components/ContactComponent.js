@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Label, Col, Row } from 'reactstrap';
+import { Label, Col, Row, Button } from 'reactstrap';
 import { Control, LocalForm, Errors } from 'react-redux-form';
 
 const required = (val) => val && val.length;
@@ -14,8 +14,7 @@ class Contact extends Component {
     }
 
     handleSubmit(values) {
-        console.log('Current State is: ' + JSON.stringify(values));
-        alert('Current State is: ' + JSON.stringify(values));
+        this.props.postFeedback(values.firstname, values.lastname, values.telnum, values.email, values.message);
     }
 
     render() {
@@ -139,6 +138,29 @@ class Contact extends Component {
                                             validEmail: 'Invalid Email Address'
                                         }}
                                      />
+                                </Col>
+                            </Row>
+                            <Row className="form-group">
+                                <Col md={{size:6, offset:2 }}>
+                                    <Control.checkbox model=".agree" id="agree" name="agree"/>
+                                    <Label htmlFor="agree"><strong> May we contact you?</strong></Label>
+                                </Col>
+                                <Col md={{size:3, offset:1}}>
+                                    <Control.select model=".select" id="select" name="select" className="form-control">
+                                        <option>Tel.</option>
+                                        <option>Email</option>
+                                    </Control.select>
+                                </Col>
+                            </Row>
+                            <Row className="form-group">
+                                <Label htmlFor="message" md={2}>Your Feedback</Label>
+                                <Col md={10}>
+                                    <Control.textarea model=".message" id="message" name="message" rows='10' className="form-control" />
+                                </Col>
+                            </Row>
+                            <Row>
+                                <Col md={{ size:10, offset:2 }}>
+                                    <Button color="primary" >Send Feedback</Button>{' '}
                                 </Col>
                             </Row>
                         </LocalForm>
